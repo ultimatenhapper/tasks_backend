@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const globalErrorHandler = require('./controllers/errorController');
 const taskRouter = require('./routes/taskRouter');
 const userRouter = require('./routes/userRouter');
 
@@ -20,5 +21,14 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/tasks', taskRouter);
+
+// Handling unknown requests
+app.all('*', (req, res, next) => {
+  const err = new Error(`Can´t find ${req.originalUrl} on this server!`, 404);
+
+  next(err);
+});
+
+app.use(globalErrorHandler);
 
 module.exports = app;

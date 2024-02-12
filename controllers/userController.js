@@ -1,13 +1,13 @@
 const users = [
-    {
-        name: 'Javi',
-        email: 'javi@mail.com'
-    }
+  {
+    name: 'Javi',
+    email: 'javi@mail.com',
+  },
 ];
 
 exports.getAllUsers = (req, res) => {
   res.status(200).json({
-    status: "success",
+    status: 'success',
     results: users.length,
     data: {
       users,
@@ -21,13 +21,13 @@ exports.getUser = (req, res) => {
 
   if (!user) {
     return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
+      status: 'fail',
+      message: 'Invalid ID',
     });
   }
 
   res.status(200).json({
-    status: "success",
+    status: 'success',
     data: {
       user,
     },
@@ -35,7 +35,7 @@ exports.getUser = (req, res) => {
 };
 
 exports.createUser = (req, res) => {
-  res.send("You can post to this endpoint to create an user...");
+  res.send('You can post to this endpoint to create an user...');
 };
 
 exports.updateUser = (req, res) => {
@@ -44,15 +44,15 @@ exports.updateUser = (req, res) => {
 
   if (!user) {
     return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
+      status: 'fail',
+      message: 'Invalid ID',
     });
   }
 
   res.status(200).json({
-    status: "success",
+    status: 'success',
     data: {
-      user: "Updated user...",
+      user: 'Updated user...',
     },
   });
 };
@@ -63,13 +63,13 @@ exports.deleteUser = (req, res) => {
 
   if (!user) {
     return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
+      status: 'fail',
+      message: 'Invalid ID',
     });
   }
 
   res.status(204).json({
-    status: "success",
+    status: 'success',
     data: null,
   });
 };
