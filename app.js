@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const morgan = require('morgan');
 
 const taskRouter = require('./routes/taskRouter');
@@ -6,7 +6,7 @@ const userRouter = require('./routes/userRouter');
 
 const app = express();
 
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
